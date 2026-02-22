@@ -1,0 +1,9 @@
+services:
+  tcp-server:
+    image: tcpserverclientcommunication
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "52268:52268"
+    restart: unless-stopped
