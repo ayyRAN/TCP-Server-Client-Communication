@@ -22,7 +22,7 @@ def handle_client(client_socket, addr, client_name):
 
     while True:
         data = client_socket.recv(1024).decode()  # Receive message
-        if data.lower() == 'exit': 
+        if not data or data.lower() == 'exit': 
             close_time = datetime.now()  # Stores time at exit
             cache[f"{client_name}"] = (str(time), str(close_time))
             print(f"{client_name} has disconnected.")
