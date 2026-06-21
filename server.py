@@ -45,11 +45,11 @@ def handle_client(client_socket, addr, client_name):
         active_clients -= 1
 
 
-def start_server():
+def start_server(host='0.0.0.0', port=52268):
     global active_clients
     global max_clients
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_socket.bind(('0.0.0.0', 52268))  # Universal IP address for hosting to allow for local and internet connections
+    server_socket.bind((host, port))  # Universal IP address for hosting to allow for local and internet connections
     server_socket.listen(max_clients)  # Listen for up to 3 clients
     print("Server is listening...")
     i = 0  # Client number
